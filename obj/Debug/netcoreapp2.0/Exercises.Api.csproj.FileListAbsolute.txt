@@ -1,0 +1,10 @@
+/Users/Bryn/Working/Exercises.Api/bin/Debug/netcoreapp2.0/Exercises.Api.deps.json
+/Users/Bryn/Working/Exercises.Api/bin/Debug/netcoreapp2.0/Exercises.Api.runtimeconfig.json
+/Users/Bryn/Working/Exercises.Api/bin/Debug/netcoreapp2.0/Exercises.Api.runtimeconfig.dev.json
+/Users/Bryn/Working/Exercises.Api/bin/Debug/netcoreapp2.0/Exercises.Api.dll
+/Users/Bryn/Working/Exercises.Api/bin/Debug/netcoreapp2.0/Exercises.Api.pdb
+/Users/Bryn/Working/Exercises.Api/obj/Debug/netcoreapp2.0/Exercises.Api.csproj.CoreCompileInputs.cache
+/Users/Bryn/Working/Exercises.Api/obj/Debug/netcoreapp2.0/Exercises.Api.AssemblyInfoInputs.cache
+/Users/Bryn/Working/Exercises.Api/obj/Debug/netcoreapp2.0/Exercises.Api.AssemblyInfo.cs
+/Users/Bryn/Working/Exercises.Api/obj/Debug/netcoreapp2.0/Exercises.Api.dll
+/Users/Bryn/Working/Exercises.Api/obj/Debug/netcoreapp2.0/Exercises.Api.pdb
