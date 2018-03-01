@@ -12542,11 +12542,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Bryn/Working/Exercises.Api/Exercises.Api.csproj",
+      "projectUniqueName": "/Users/Bryn/Working/ExercisesAPI/Exercises.Api.csproj",
       "projectName": "Exercises.Api",
-      "projectPath": "/Users/Bryn/Working/Exercises.Api/Exercises.Api.csproj",
+      "projectPath": "/Users/Bryn/Working/ExercisesAPI/Exercises.Api.csproj",
       "packagesPath": "/Users/Bryn/.nuget/packages/",
-      "outputPath": "/Users/Bryn/Working/Exercises.Api/obj/",
+      "outputPath": "/Users/Bryn/Working/ExercisesAPI/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
