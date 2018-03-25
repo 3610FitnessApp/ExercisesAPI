@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Exercises.Api.Models
+namespace Exercises.Api.Data
 {
     public class ProgramInstance{
         public int Id { get; set; }

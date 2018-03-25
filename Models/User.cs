@@ -1,6 +1,6 @@
 using System;
 
-namespace Exercises.Api.Models
+namespace Exercises.Api.Data
 {
     public class User{
 

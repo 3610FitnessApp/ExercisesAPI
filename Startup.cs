@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
-using Exercises.Api.Models;
+using Exercises.Api.Data;
 
 namespace Exercises.Api
 {
@@ -25,7 +25,7 @@ namespace Exercises.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ExerciseContext>(opt => opt.UseInMemoryDatabase("Exercises"));
+            services.AddDbContext<ExerciseContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("DatabaseConnection")));
             services.AddMvc();
         }
 

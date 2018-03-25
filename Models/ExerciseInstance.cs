@@ -1,8 +1,9 @@
 using System;
 
-namespace Exercises.Api.Models
+namespace Exercises.Api.Data
 {
     public class ExerciseInstance{
+        public int Id { get; set; }
         public int weight { get; set; }
         public int reps { get; set; }
         public int sets { get; set; }
