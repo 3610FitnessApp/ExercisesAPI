@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Exercises.Api.Models;
+using Exercises.Api.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Exercises.Api.Controllers
