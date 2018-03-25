@@ -12536,23 +12536,23 @@
     ]
   },
   "packageFolders": {
-    "/Users/Bryn/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\Alex\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Bryn/Working/ExercisesAPI/Exercises.Api.csproj",
+      "projectUniqueName": "c:\\Users\\Alex\\Documents\\Spring 2018\\ACCTMIS 3610\\Workspace\\ExercisesAPI\\Exercises.Api.csproj",
       "projectName": "Exercises.Api",
-      "projectPath": "/Users/Bryn/Working/ExercisesAPI/Exercises.Api.csproj",
-      "packagesPath": "/Users/Bryn/.nuget/packages/",
-      "outputPath": "/Users/Bryn/Working/ExercisesAPI/obj/",
+      "projectPath": "c:\\Users\\Alex\\Documents\\Spring 2018\\ACCTMIS 3610\\Workspace\\ExercisesAPI\\Exercises.Api.csproj",
+      "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\Alex\\Documents\\Spring 2018\\ACCTMIS 3610\\Workspace\\ExercisesAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/Bryn/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"

@@ -6,8 +6,8 @@ namespace Exercises.Api.Models
     public class Workout
     {
       public int Id { get; set; }
-      public List<Exercise> Exercise { get; set; }
-
-      public DateTime WorkoutDate { get; set; }
+      public string name { get; set; }
+      public List<Exercise> exercises { get; set; }
+      public List<BodyPart> bodyParts { get; set; }
     }
 }

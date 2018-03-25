@@ -11,17 +11,20 @@ namespace Workouts.Api.Controllers
     public class WorkoutsController : Controller
     {
         private readonly ExerciseContext db;
+
         public WorkoutsController(ExerciseContext db)
         {
             
             this.db = db;
 
         }
+
         [HttpGet]
         public IActionResult GetAll()
         {
             return Ok(db.Workouts);
         }
+
         [HttpGet("{id}", Name="GetWorkout")]
         public IActionResult GetById(int id)
         {
@@ -34,6 +37,7 @@ namespace Workouts.Api.Controllers
 
             return Ok(workout);
         }
+
         [HttpPost]
         public IActionResult Post([FromBody]Workout workout)
         {
@@ -41,11 +45,12 @@ namespace Workouts.Api.Controllers
             {
                 return BadRequest();
             }
-        this.db.Workouts.Add(workout);
-        this.db.SaveChanges();
+            this.db.Workouts.Add(workout);
+            this.db.SaveChanges();
 
-        return CreatedAtRoute("GetWorkout", new { id = workout.Id}, workout);
+            return CreatedAtRoute("GetWorkout", new { id = workout.Id}, workout);
         }
+
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody]Workout newWorkout)
         {
@@ -60,8 +65,7 @@ namespace Workouts.Api.Controllers
                 return NotFound();
             }
 
-            currentWorkout.Exercise = newWorkout.Exercise;
-            currentWorkout.WorkoutDate = newWorkout.WorkoutDate;
+            currentWorkout.exercises = newWorkout.exercises;
 
             this.db.Workouts.Update(currentWorkout);
             this.db.SaveChanges();

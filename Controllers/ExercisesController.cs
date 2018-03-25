@@ -11,6 +11,7 @@ namespace Exercises.Api.Controllers
     public class ExercisesController : Controller
     {
         private readonly ExerciseContext db;
+
         public ExercisesController(ExerciseContext db)
         {
             this.db = db;
@@ -20,29 +21,25 @@ namespace Exercises.Api.Controllers
                 this.db.Exercises.Add(new Exercise
                 {
                     Id = 1,
-                    Title = "Bench Press",
-                    Weight = 150,
-                    Repetitions = 15,
-                    Sets = 1
+                    name = "Bench Press"
                 });
 
                 this.db.Exercises.Add(new Exercise
                 {
                     Id = 2,
-                    Title = "Loud Grunting",
-                    Weight = 0,
-                    Repetitions = 1000,
-                    Sets = 10
+                    name = "Hammer Curls"
                 });
 
                 this.db.SaveChanges();
             }
         }
+
         [HttpGet]
         public IActionResult GetAll()
         {
             return Ok(db.Exercises);
         }
+
         [HttpGet("{id}", Name="GetExercise")]
         public IActionResult GetById(int id)
         {
@@ -55,6 +52,7 @@ namespace Exercises.Api.Controllers
 
             return Ok(exercise);
         }
+
         [HttpPost]
         public IActionResult Post([FromBody]Exercise exercise)
         {
@@ -62,11 +60,12 @@ namespace Exercises.Api.Controllers
             {
                 return BadRequest();
             }
-        this.db.Exercises.Add(exercise);
-        this.db.SaveChanges();
+            this.db.Exercises.Add(exercise);
+            this.db.SaveChanges();
 
         return CreatedAtRoute("GetExercise", new { id = exercise.Id}, exercise);
         }
+
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody]Exercise newExercise)
         {
@@ -81,16 +80,14 @@ namespace Exercises.Api.Controllers
                 return NotFound();
             }
 
-            currentExercise.Title = newExercise.Title;
-            currentExercise.Weight = newExercise.Weight;
-            currentExercise.Repetitions = newExercise.Repetitions;
-            currentExercise.Sets = newExercise.Sets;
+            currentExercise.name = newExercise.name;
 
             this.db.Exercises.Update(currentExercise);
             this.db.SaveChanges();
 
             return NoContent();
         }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
