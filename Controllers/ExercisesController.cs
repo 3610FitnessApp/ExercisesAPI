@@ -21,13 +21,15 @@ namespace Exercises.Api.Controllers
                 this.db.Exercises.Add(new Exercise
                 {
                     Id = 1,
-                    name = "Bench Press"
+                    name = "Bench Press",
+                    bodyParts  = null
                 });
 
                 this.db.Exercises.Add(new Exercise
                 {
                     Id = 2,
-                    name = "Hammer Curls"
+                    name = "Hammer Curls",
+                    bodyParts = null
                 });
 
                 this.db.SaveChanges();
