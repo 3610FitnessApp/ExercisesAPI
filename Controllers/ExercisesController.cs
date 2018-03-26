@@ -81,6 +81,7 @@ namespace Exercises.Api.Controllers
             }
 
             currentExercise.name = newExercise.name;
+            currentExercise.bodyParts = newExercise.bodyParts;
 
             this.db.Exercises.Update(currentExercise);
             this.db.SaveChanges();
