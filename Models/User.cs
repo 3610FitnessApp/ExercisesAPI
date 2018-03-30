@@ -1,8 +1,9 @@
 using System;
+using Microsoft.AspNetCore.Identity;
 
 namespace Exercises.Api.Data
 {
-    public class User{
+    public class User : IdentityUser{
 
         public int userId { get; set; }
         public string lastName { get; set; }
