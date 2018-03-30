@@ -18,13 +18,23 @@
 /Users/Bryn/Working/ExercisesAPI/obj/Debug/netcoreapp2.0/Exercises.Api.AssemblyInfo.cs
 /Users/Bryn/Working/ExercisesAPI/obj/Debug/netcoreapp2.0/Exercises.Api.dll
 /Users/Bryn/Working/ExercisesAPI/obj/Debug/netcoreapp2.0/Exercises.Api.pdb
-C:\Users\Alex\Documents\Spring 2018\ACCTMIS 3610\Workspace\ExercisesAPI\bin\Debug\netcoreapp2.0\Exercises.Api.deps.json
-C:\Users\Alex\Documents\Spring 2018\ACCTMIS 3610\Workspace\ExercisesAPI\bin\Debug\netcoreapp2.0\Exercises.Api.runtimeconfig.json
-C:\Users\Alex\Documents\Spring 2018\ACCTMIS 3610\Workspace\ExercisesAPI\bin\Debug\netcoreapp2.0\Exercises.Api.runtimeconfig.dev.json
-C:\Users\Alex\Documents\Spring 2018\ACCTMIS 3610\Workspace\ExercisesAPI\bin\Debug\netcoreapp2.0\Exercises.Api.dll
-C:\Users\Alex\Documents\Spring 2018\ACCTMIS 3610\Workspace\ExercisesAPI\bin\Debug\netcoreapp2.0\Exercises.Api.pdb
-C:\Users\Alex\Documents\Spring 2018\ACCTMIS 3610\Workspace\ExercisesAPI\obj\Debug\netcoreapp2.0\Exercises.Api.csproj.CoreCompileInputs.cache
-C:\Users\Alex\Documents\Spring 2018\ACCTMIS 3610\Workspace\ExercisesAPI\obj\Debug\netcoreapp2.0\Exercises.Api.AssemblyInfoInputs.cache
-C:\Users\Alex\Documents\Spring 2018\ACCTMIS 3610\Workspace\ExercisesAPI\obj\Debug\netcoreapp2.0\Exercises.Api.AssemblyInfo.cs
-C:\Users\Alex\Documents\Spring 2018\ACCTMIS 3610\Workspace\ExercisesAPI\obj\Debug\netcoreapp2.0\Exercises.Api.dll
-C:\Users\Alex\Documents\Spring 2018\ACCTMIS 3610\Workspace\ExercisesAPI\obj\Debug\netcoreapp2.0\Exercises.Api.pdb
+C:/Users/Alex/Documents/Spring 2018/ACCTMIS 3610/Workspace/ExercisesAPI/bin/Debug/netcoreapp2.0/Exercises.Api.deps.json
+C:/Users/Alex/Documents/Spring 2018/ACCTMIS 3610/Workspace/ExercisesAPI/bin/Debug/netcoreapp2.0/Exercises.Api.runtimeconfig.json
+C:/Users/Alex/Documents/Spring 2018/ACCTMIS 3610/Workspace/ExercisesAPI/bin/Debug/netcoreapp2.0/Exercises.Api.runtimeconfig.dev.json
+C:/Users/Alex/Documents/Spring 2018/ACCTMIS 3610/Workspace/ExercisesAPI/bin/Debug/netcoreapp2.0/Exercises.Api.dll
+C:/Users/Alex/Documents/Spring 2018/ACCTMIS 3610/Workspace/ExercisesAPI/bin/Debug/netcoreapp2.0/Exercises.Api.pdb
+C:/Users/Alex/Documents/Spring 2018/ACCTMIS 3610/Workspace/ExercisesAPI/obj/Debug/netcoreapp2.0/Exercises.Api.csproj.CoreCompileInputs.cache
+C:/Users/Alex/Documents/Spring 2018/ACCTMIS 3610/Workspace/ExercisesAPI/obj/Debug/netcoreapp2.0/Exercises.Api.AssemblyInfoInputs.cache
+C:/Users/Alex/Documents/Spring 2018/ACCTMIS 3610/Workspace/ExercisesAPI/obj/Debug/netcoreapp2.0/Exercises.Api.AssemblyInfo.cs
+C:/Users/Alex/Documents/Spring 2018/ACCTMIS 3610/Workspace/ExercisesAPI/obj/Debug/netcoreapp2.0/Exercises.Api.dll
+C:/Users/Alex/Documents/Spring 2018/ACCTMIS 3610/Workspace/ExercisesAPI/obj/Debug/netcoreapp2.0/Exercises.Api.pdb
+/Users/BrettBrunswick/Desktop/College/SP18/ACCTMIS 3610/3610Workspace/ExercisesAPI/bin/Debug/netcoreapp2.0/Exercises.Api.deps.json
+/Users/BrettBrunswick/Desktop/College/SP18/ACCTMIS 3610/3610Workspace/ExercisesAPI/bin/Debug/netcoreapp2.0/Exercises.Api.runtimeconfig.json
+/Users/BrettBrunswick/Desktop/College/SP18/ACCTMIS 3610/3610Workspace/ExercisesAPI/bin/Debug/netcoreapp2.0/Exercises.Api.runtimeconfig.dev.json
+/Users/BrettBrunswick/Desktop/College/SP18/ACCTMIS 3610/3610Workspace/ExercisesAPI/bin/Debug/netcoreapp2.0/Exercises.Api.dll
+/Users/BrettBrunswick/Desktop/College/SP18/ACCTMIS 3610/3610Workspace/ExercisesAPI/bin/Debug/netcoreapp2.0/Exercises.Api.pdb
+/Users/BrettBrunswick/Desktop/College/SP18/ACCTMIS 3610/3610Workspace/ExercisesAPI/obj/Debug/netcoreapp2.0/Exercises.Api.csproj.CoreCompileInputs.cache
+/Users/BrettBrunswick/Desktop/College/SP18/ACCTMIS 3610/3610Workspace/ExercisesAPI/obj/Debug/netcoreapp2.0/Exercises.Api.AssemblyInfoInputs.cache
+/Users/BrettBrunswick/Desktop/College/SP18/ACCTMIS 3610/3610Workspace/ExercisesAPI/obj/Debug/netcoreapp2.0/Exercises.Api.AssemblyInfo.cs
+/Users/BrettBrunswick/Desktop/College/SP18/ACCTMIS 3610/3610Workspace/ExercisesAPI/obj/Debug/netcoreapp2.0/Exercises.Api.dll
+/Users/BrettBrunswick/Desktop/College/SP18/ACCTMIS 3610/3610Workspace/ExercisesAPI/obj/Debug/netcoreapp2.0/Exercises.Api.pdb

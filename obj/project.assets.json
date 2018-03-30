@@ -12592,23 +12592,23 @@
     ]
   },
   "packageFolders": {
-    "/Users/Bryn/.nuget/packages/": {},
+    "/Users/BrettBrunswick/.nuget/packages/": {},
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Bryn/Working/Exercises.Api/Exercises.Api.csproj",
+      "projectUniqueName": "/Users/BrettBrunswick/Desktop/College/SP18/ACCTMIS 3610/3610Workspace/ExercisesAPI/Exercises.Api.csproj",
       "projectName": "Exercises.Api",
-      "projectPath": "/Users/Bryn/Working/Exercises.Api/Exercises.Api.csproj",
-      "packagesPath": "/Users/Bryn/.nuget/packages/",
-      "outputPath": "/Users/Bryn/Working/Exercises.Api/obj/",
+      "projectPath": "/Users/BrettBrunswick/Desktop/College/SP18/ACCTMIS 3610/3610Workspace/ExercisesAPI/Exercises.Api.csproj",
+      "packagesPath": "/Users/BrettBrunswick/.nuget/packages/",
+      "outputPath": "/Users/BrettBrunswick/Desktop/College/SP18/ACCTMIS 3610/3610Workspace/ExercisesAPI/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/Bryn/.nuget/NuGet/NuGet.Config"
+        "/Users/BrettBrunswick/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
