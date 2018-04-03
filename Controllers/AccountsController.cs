@@ -17,7 +17,9 @@ namespace Accounts.Api.Controllers
         private readonly ExerciseContext db;
         private readonly ILogger<AccountsController> _logger;
 
+
         public AccountsController(ExerciseContext db, ILogger<AccountsController> logger)
+
         {
             
             this.db = db;
@@ -31,12 +33,12 @@ namespace Accounts.Api.Controllers
         //IdentityResult
         {
             var userStore = new UserStore<User>(db);
-            //var manager = new UserManager<User>(userStore);
+            //var manager = new UserManager<User>(userStore, null, null, null, null, null, null, null, null);
             var user = new User() { UserName = model.UserName, Email = model.Email };
             user.firstName = model.firstName;
             user.lastName = model.lastName;
             user.skillLevel = model.skillLevel;
-            //userStore.
+            //manager.CreateAsync(user, model.Password);
             db.AspNetUsers.Add(user);
             db.SaveChanges();
             return CreatedAtRoute("GetUser", new { id = user.Id}, user);
