@@ -9,5 +9,7 @@ namespace Exercises.Api.Data
         public int sets { get; set; }
         public int workoutId { get; set; }
         public int exerciseId { get; set; }
+
+        public User user { get; set; }
     }
 }

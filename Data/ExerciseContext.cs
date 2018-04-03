@@ -1,11 +1,17 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Exercises.Api.Data;
 
 namespace Exercises.Api.Data
 {
-    public class ExerciseContext : DbContext
+    public class ExerciseContext : IdentityDbContext<User>
     {
         public ExerciseContext(DbContextOptions<ExerciseContext> options)
             : base(options)
+            {
+            }
+
+        public ExerciseContext()
             {
             }
 
@@ -16,9 +22,13 @@ namespace Exercises.Api.Data
         public DbSet<ExerciseInstance> ExerciseInstances { get; set; }
         public DbSet<Program> Programs { get; set; }
         public DbSet<ProgramInstance> ProgramInstances { get; set; }
-        public DbSet<User> Users { get; set; }
+        //public DbSet<User> Users { get; set; }
+
+        public DbSet<User> AspNetUsers {get; set;}
         public DbSet<Workout> Workouts { get; set; }
         public DbSet<WorkoutInstance> WorkoutInstances { get; set; }
+    
+
 
     }
 }

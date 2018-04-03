@@ -11,9 +11,10 @@ using System;
 namespace Exercises.Api.Migrations
 {
     [DbContext(typeof(ExerciseContext))]
-    partial class ExerciseContextModelSnapshot : ModelSnapshot
+    [Migration("20180402005906_IdentityDb")]
+    partial class IdentityDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -156,13 +157,21 @@ namespace Exercises.Api.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
 
+                    b.Property<string>("email");
+
                     b.Property<string>("firstName");
 
                     b.Property<int>("height");
 
                     b.Property<string>("lastName");
 
+                    b.Property<string>("password");
+
                     b.Property<int>("skillLevel");
+
+                    b.Property<int>("userId");
+
+                    b.Property<string>("username");
 
                     b.Property<int>("weight");
 
