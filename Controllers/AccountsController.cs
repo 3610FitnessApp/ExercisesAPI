@@ -68,5 +68,6 @@ namespace Accounts.Api.Controllers
                     throw new InvalidOperationException("This email is already in use.");
             }
         }
+
     }
 }
