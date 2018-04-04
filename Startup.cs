@@ -35,8 +35,10 @@ namespace Exercises.Api
             {
                 cfg.User.RequireUniqueEmail = true;
             })
-                .AddEntityFrameworkStores<ExerciseContext>().AddDefaultTokenProviders();
+                .AddEntityFrameworkStores<ExerciseContext>();
 
+            services.AddTransient<ExerciseSeeder>();
+            
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -60,6 +62,14 @@ namespace Exercises.Api
             app.UseCors("CorsPolicy");
             app.UseAuthentication();
             app.UseMvc();
+
+            if(env.IsDevelopment()) {
+                //seed the database
+                using (var scope = app.ApplicationServices.CreateScope()){
+                    var seeder = scope.ServiceProvider.GetService<ExerciseSeeder>();
+                    seeder.Seed().Wait();
+                }
+            }
         }
     }
 }
