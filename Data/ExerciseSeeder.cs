@@ -1,3 +1,6 @@
+//This file seeds our database with simple data.
+//Called at startup only when the app is in development mode.
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

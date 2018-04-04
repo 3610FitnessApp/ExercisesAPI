@@ -63,8 +63,9 @@ namespace Exercises.Api
             app.UseAuthentication();
             app.UseMvc();
 
+            //Calling the ExerciseSeeder to seed the database with simple data,
+            //only called when in development mode.
             if(env.IsDevelopment()) {
-                //seed the database
                 using (var scope = app.ApplicationServices.CreateScope()){
                     var seeder = scope.ServiceProvider.GetService<ExerciseSeeder>();
                     seeder.Seed().Wait();

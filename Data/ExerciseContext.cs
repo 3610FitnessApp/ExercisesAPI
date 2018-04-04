@@ -22,7 +22,6 @@ namespace Exercises.Api.Data
         public DbSet<ExerciseInstance> ExerciseInstances { get; set; }
         public DbSet<Program> Programs { get; set; }
         public DbSet<ProgramInstance> ProgramInstances { get; set; }
-        //public DbSet<User> Users { get; set; }
 
         public DbSet<User> AspNetUsers {get; set;}
         public DbSet<Workout> Workouts { get; set; }

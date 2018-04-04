@@ -1,9 +1,12 @@
+//Used to map a JSON post to a model we can use
+//to create a User. Used for AccountsController.Register.
+
 using System;
 using System.Collections.Generic;
 
-namespace Exercises.Api.Data
+namespace Exercises.Api.Models.ViewModels
 {
-    public class AccountModel
+    public class RegisterViewModel
     {
        public string UserName { get; set; }
         public string lastName { get; set; }

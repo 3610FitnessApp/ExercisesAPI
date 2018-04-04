@@ -10,7 +10,7 @@ namespace Exercises.Api.Data
         public int workoutId { get; set; }
         public List<ExerciseInstance> exercises { get; set; }
 
-        //setting user to this instance
+        //Setting a User to this instance
         public User user { get; set; }
     }
 }
