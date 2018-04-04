@@ -7,7 +7,6 @@ namespace Exercises.Api.Data
     {
       public int Id { get; set; }
       public string name { get; set; }
-      public List<Exercise> exercises { get; set; }
-      public List<BodyPart> bodyParts { get; set; }
+      public List<WorkoutExercise> Exercises { get; set; }
     }
 }

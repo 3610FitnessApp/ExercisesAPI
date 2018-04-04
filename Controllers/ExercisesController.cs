@@ -21,15 +21,13 @@ namespace Exercises.Api.Controllers
                 this.db.Exercises.Add(new Exercise
                 {
                     Id = 1,
-                    name = "Bench Press",
-                    bodyParts  = null
+                    name = "Bench Press"
                 });
 
                 this.db.Exercises.Add(new Exercise
                 {
                     Id = 2,
-                    name = "Hammer Curls",
-                    bodyParts = null
+                    name = "Hammer Curls"
                 });
 
                 this.db.SaveChanges();
@@ -83,7 +81,7 @@ namespace Exercises.Api.Controllers
             }
 
             currentExercise.name = newExercise.name;
-            currentExercise.bodyParts = newExercise.bodyParts;
+            currentExercise.ExerciseBodyPart = newExercise.ExerciseBodyPart;
 
             this.db.Exercises.Update(currentExercise);
             this.db.SaveChanges();
