@@ -11,9 +11,10 @@ using System;
 namespace Exercises.Api.Migrations
 {
     [DbContext(typeof(ExerciseContext))]
-    partial class ExerciseContextModelSnapshot : ModelSnapshot
+    [Migration("20180403001129_more-many")]
+    partial class moremany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,9 +38,13 @@ namespace Exercises.Api.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("WorkoutId");
+
                     b.Property<string>("name");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("WorkoutId");
 
                     b.ToTable("Exercises");
                 });
@@ -117,8 +122,6 @@ namespace Exercises.Api.Migrations
 
                     b.HasKey("workoutId", "programId");
 
-                    b.HasIndex("programId");
-
                     b.ToTable("ProgramWorkouts");
                 });
 
@@ -153,9 +156,13 @@ namespace Exercises.Api.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("ProgramId");
+
                     b.Property<string>("name");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProgramId");
 
                     b.ToTable("Workouts");
                 });
@@ -167,8 +174,6 @@ namespace Exercises.Api.Migrations
                     b.Property<int>("workoutId");
 
                     b.HasKey("exerciseId", "workoutId");
-
-                    b.HasIndex("workoutId");
 
                     b.ToTable("WorkoutExercises");
                 });
@@ -193,6 +198,13 @@ namespace Exercises.Api.Migrations
                     b.ToTable("WorkoutInstances");
                 });
 
+            modelBuilder.Entity("Exercises.Api.Data.Exercise", b =>
+                {
+                    b.HasOne("Exercises.Api.Data.Workout")
+                        .WithMany("Exercises")
+                        .HasForeignKey("WorkoutId");
+                });
+
             modelBuilder.Entity("Exercises.Api.Data.ExerciseBodyPart", b =>
                 {
                     b.HasOne("Exercises.Api.Data.Exercise")
@@ -208,20 +220,11 @@ namespace Exercises.Api.Migrations
                         .HasForeignKey("WorkoutInstanceId");
                 });
 
-            modelBuilder.Entity("Exercises.Api.Data.ProgramWorkout", b =>
+            modelBuilder.Entity("Exercises.Api.Data.Workout", b =>
                 {
                     b.HasOne("Exercises.Api.Data.Program")
-                        .WithMany("Workouts")
-                        .HasForeignKey("programId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Exercises.Api.Data.WorkoutExercise", b =>
-                {
-                    b.HasOne("Exercises.Api.Data.Workout")
-                        .WithMany("Exercises")
-                        .HasForeignKey("workoutId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .WithMany("Workout")
+                        .HasForeignKey("ProgramId");
                 });
 
             modelBuilder.Entity("Exercises.Api.Data.WorkoutInstance", b =>

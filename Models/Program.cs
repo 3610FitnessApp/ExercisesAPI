@@ -7,9 +7,9 @@ namespace Exercises.Api.Data
     {
         public int Id { get; set; }
         public string programName { get; set; }
-        public List<Workout> workouts{ get; set; }
         public int daysPerWeek { get; set; }
         public int week { get; set; }
+        public List<ProgramWorkout> Workouts { get; set; }
         
     }
 }
