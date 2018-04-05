@@ -45,7 +45,8 @@ namespace Exercises.Api
                 builder => builder.AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader()
-                .WithOrigins("http://localhost:4200"));
+                .WithOrigins("http://localhost:4200")
+                .WithOrigins("http://localhost:4200/register"));
             });
 
             services.AddMvc();

@@ -38,7 +38,7 @@ namespace Accounts.Api.Controllers
         //so db.add is not neccessary here.
         [Route("api/Accounts/Register")]
         [HttpPost]
-        public async Task Register([FromBody] RegisterViewModel model)
+        public async Task <IdentityResult> Register([FromBody] RegisterViewModel model)
         {
             var userCheck = await _userManager.FindByEmailAsync(model.Email);
             if (userCheck == null) {
@@ -50,7 +50,10 @@ namespace Accounts.Api.Controllers
                 };
                 var result = await _userManager.CreateAsync(newUser, model.Password);
                 if(result != IdentityResult.Success) {
-                    throw new InvalidOperationException("Failed to Register");
+                    var exceptionText = result.Errors.Aggregate("User Creation Failed - Identity Exception. Errors were: \n\r\n\r", (current, error) => current + (" - " + error + "\n\r"));
+                    throw new Exception (exceptionText);
+                } else {
+                    return result;
                 }
             } else {
                     throw new InvalidOperationException("This email is already in use.");
