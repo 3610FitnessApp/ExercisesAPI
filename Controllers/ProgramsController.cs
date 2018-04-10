@@ -66,9 +66,9 @@ namespace Programs.Api.Controllers
             }
 
             currentProgram.programName = newProgram.programName;
-            currentProgram.workouts = newProgram.workouts;
             currentProgram.daysPerWeek = newProgram.daysPerWeek;
             currentProgram.week = newProgram.week;
+            currentProgram.Workouts = newProgram.Workouts;
             
 
             this.db.Programs.Update(currentProgram);

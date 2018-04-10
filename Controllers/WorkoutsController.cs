@@ -65,9 +65,8 @@ namespace Workouts.Api.Controllers
                 return NotFound();
             }
 
-            currentWorkout.exercises = newWorkout.exercises;
             currentWorkout.name = newWorkout.name;
-            currentWorkout.bodyParts = newWorkout.bodyParts;
+            currentWorkout.Exercises = newWorkout.Exercises;
 
             this.db.Workouts.Update(currentWorkout);
             this.db.SaveChanges();
