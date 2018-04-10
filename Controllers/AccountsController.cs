@@ -3,6 +3,7 @@
 //UsersController may not be necessary in our app.
 
 using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,6 +13,10 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Exercises.Api.Models.ViewModels;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Configuration;
+using System.Security.Claims;
 
 
 namespace Accounts.Api.Controllers
@@ -23,16 +28,23 @@ namespace Accounts.Api.Controllers
 
         private readonly UserManager<User> _userManager;
 
+        private readonly SignInManager<User> _signInManager;
+
+        private readonly IConfiguration _config;
+
         public AccountsController(ExerciseContext db, ILogger<AccountsController> logger,
-        UserManager<User> userManager)
+        UserManager<User> userManager, SignInManager<User> signInManager, IConfiguration config)
 
         {
             
             this.db = db;
             _logger = logger;
             _userManager = userManager;
+            _signInManager = signInManager;
+            _config = config;
 
         }
+
 
         //Used to Create a new User. UserManager takes care of adding the User to our db
         //so db.add is not neccessary here.
@@ -58,6 +70,50 @@ namespace Accounts.Api.Controllers
             } else {
                     throw new InvalidOperationException("This email is already in use.");
             }
+        }
+
+        [Route("api/Accounts/Login")]
+        [HttpPost]
+        public async Task<IActionResult> Login ([FromBody] LoginViewModel model) 
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByNameAsync(model.UserName);
+                if (user != null)
+                {
+                    var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+                    if (result.Succeeded)
+                    {
+                        //Create token for the user
+                        var claims = new []
+                        {
+                            new Claim(JwtRegisteredClaimNames.Sub, user.Email),
+                            new Claim(JwtRegisteredClaimNames.Jti, new Guid().ToString())
+                        };
+
+                        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
+                        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+                        var token = new JwtSecurityToken(
+                            _config["Tokens:Issuer"],
+                            _config["Tokens:Audience"],
+                            claims,
+                            expires: DateTime.UtcNow.AddMinutes(30),
+                            signingCredentials: creds
+                        );
+
+                        var results = new 
+                        {
+                            token = new JwtSecurityTokenHandler().WriteToken(token),
+                            expiration = token.ValidTo
+                        };
+
+                        return Created("", results);
+                    }
+                }
+            }
+
+            return BadRequest();
         }
 
     }

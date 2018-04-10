@@ -11,7 +11,7 @@ using System;
 namespace Exercises.Api.Migrations
 {
     [DbContext(typeof(ExerciseContext))]
-    [Migration("20180409233858_init")]
+    [Migration("20180410001903_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

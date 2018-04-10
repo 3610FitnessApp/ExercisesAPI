@@ -11,7 +11,6 @@ namespace Exercises.Api.Data
             {
             }
 
-
         public ExerciseContext()
             {
             }
@@ -34,7 +33,6 @@ namespace Exercises.Api.Data
         public DbSet<ExerciseBodyPart> ExerciseBodyParts { get; set; }
         public DbSet<WorkoutExercise> WorkoutExercises { get; set; }
         public DbSet<ProgramWorkout> ProgramWorkouts { get; set; }
-
 
     }
 }
