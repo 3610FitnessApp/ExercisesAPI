@@ -34,6 +34,8 @@ namespace Exercises.Api.Data
             
             return _db.ExerciseInstances
                     .Where(p => p.user.UserName == username)
+                    .Include(u => u.user)
+                    .Include(e => e.exercise)
                     .OrderBy(d => d.Date)
                     .ToList();
         }

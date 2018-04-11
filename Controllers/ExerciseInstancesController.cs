@@ -50,6 +50,8 @@ namespace ExerciseInstances.Api.Controllers
         public async Task<IActionResult> Post([FromBody] ExerciseViewModel model)
         {
             var currentUser = await _userManager.FindByNameAsync(model.userName);
+            var exercise = _db.Exercises.Find(1);
+            //var exercise = _db.Exercises.SingleOrDefault(ex => ex.name == model.exercise);
             var newExerciseInstance = new ExerciseInstance() 
             {
                 Date = model.ExerciseDate,
@@ -57,7 +59,8 @@ namespace ExerciseInstances.Api.Controllers
                 Id = model.ExerciseInstanceId,
                 weight = model.weight,
                 reps = model.reps,
-                sets = model.sets
+                sets = model.sets,
+                exercise = exercise
             };
             if (newExerciseInstance.Date == DateTime.MinValue) {
                 newExerciseInstance.Date = DateTime.Now;
@@ -65,7 +68,7 @@ namespace ExerciseInstances.Api.Controllers
             _repository.AddEntity(newExerciseInstance);
             _repository.SaveAll();
 
-            return Created($"/api/ExerciseInstances/{model.ExerciseInstanceId+3}", model);
+            return Created($"/api/ExerciseInstances/{model.ExerciseInstanceId}", model);
         }
     }
 }
