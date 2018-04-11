@@ -7,22 +7,39 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ExerciseInstances.Api.Controllers
 {
-    [Route("api/Exercises")]
+    [Route("api/[Controller]")]
     public class ExerciseInstancesController : Controller
     {
-        private readonly ExerciseRepository _db;
+        //private readonly ExerciseRepository _repository;
+        private readonly ExerciseContext _db;
 
-        public ExerciseInstancesController(ExerciseRepository db)
+        public ExerciseInstancesController(ExerciseContext db/*,ExerciseRepository repository*/)
         {
             
             _db = db;
+            //_repository = repository;
 
         }
 
         [HttpGet]
-        public IEnumerable<ExerciseInstance> GetByUser(User user)
+        public IActionResult Get()
         {
-            return _db.GetAllExerciseInstancesByUser(user);
+            return Ok(_db.ExerciseInstances.ToList());
         }
+
+       /* [HttpGet("{username:string}")]
+        public IActionResult GetByUser(string username)
+        {
+
+            return Ok(_db.ExerciseInstances
+                    .Where(u => u.user.UserName.ToString() == username)
+                    .ToList());
+        }*/
+
+        /*[HttpGet("{username:string}")]
+        public IActionResult GetByUser(string username)
+        {
+            return Ok(_db.GetAllExerciseInstancesByUser(username));
+        }*/
     }
 }
