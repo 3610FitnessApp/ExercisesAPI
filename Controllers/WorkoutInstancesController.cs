@@ -67,7 +67,7 @@ namespace WorkoutInstances.Api.Controllers
 
             currentWorkoutInstance.date = newWorkoutInstance.date;
             currentWorkoutInstance.userId = newWorkoutInstance.userId;
-            currentWorkoutInstance.workoutId = newWorkoutInstance.workoutId;
+            currentWorkoutInstance.workout = newWorkoutInstance.workout;
             currentWorkoutInstance.exercises = newWorkoutInstance.exercises;
 
             this.db.WorkoutInstances.Update(currentWorkoutInstance);
