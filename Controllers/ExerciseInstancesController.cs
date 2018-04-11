@@ -52,8 +52,7 @@ namespace ExerciseInstances.Api.Controllers
         public async Task<IActionResult> Post([FromBody] ExerciseViewModel model)
         {
             var currentUser = await _userManager.FindByNameAsync(model.userName);
-            var exercise = _db.Exercises.Find(1);
-            //var exercise = _db.Exercises.SingleOrDefault(ex => ex.name == model.exercise);
+            var exercise = _db.Exercises.SingleOrDefault(ex => ex.name == model.exercise);
             var newExerciseInstance = new ExerciseInstance() 
             {
                 Date = model.ExerciseDate,
