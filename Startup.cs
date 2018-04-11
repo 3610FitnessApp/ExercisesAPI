@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Exercises.Api.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 
 namespace Exercises.Api
 {
