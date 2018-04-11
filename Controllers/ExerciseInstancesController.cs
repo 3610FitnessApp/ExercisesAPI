@@ -10,36 +10,29 @@ namespace ExerciseInstances.Api.Controllers
     [Route("api/[Controller]")]
     public class ExerciseInstancesController : Controller
     {
-        //private readonly ExerciseRepository _repository;
+        private readonly ExerciseRepository _repository;
         private readonly ExerciseContext _db;
 
-        public ExerciseInstancesController(ExerciseContext db/*,ExerciseRepository repository*/)
+        public ExerciseInstancesController(ExerciseContext db, ExerciseRepository repository)
         {
             
             _db = db;
-            //_repository = repository;
+            _repository = repository;
 
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_db.ExerciseInstances.ToList());
+            return Ok(_repository.GetAllExerciseInstances());
         }
 
-       /* [HttpGet("{username:string}")]
-        public IActionResult GetByUser(string username)
+       
+       [HttpGet("{username}")]
+        public IActionResult Get(string username)
         {
 
-            return Ok(_db.ExerciseInstances
-                    .Where(u => u.user.UserName.ToString() == username)
-                    .ToList());
-        }*/
-
-        /*[HttpGet("{username:string}")]
-        public IActionResult GetByUser(string username)
-        {
-            return Ok(_db.GetAllExerciseInstancesByUser(username));
-        }*/
+            return Ok(_repository.GetAllExerciseInstancesByUser(username));
+        }
     }
 }

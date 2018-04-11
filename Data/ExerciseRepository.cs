@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Exercises.Api.Data
 {
@@ -22,7 +23,9 @@ namespace Exercises.Api.Data
             
             
             return _db.ExerciseInstances
-                    //.OrderBy(d => d.Date)
+                    .Include(u => u.user)
+                    .Include(e => e.exercise)
+                    .OrderBy(d => d.Date)
                     .ToList();
         }
 
