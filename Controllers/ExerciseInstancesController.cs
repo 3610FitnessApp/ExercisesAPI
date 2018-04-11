@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Exercises.Api.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +16,7 @@ using System.Security.Claims;
 namespace ExerciseInstances.Api.Controllers
 {
     [Route("api/[Controller]")]
+    [Authorize(AuthenticationSchemes=JwtBearerDefaults.AuthenticationScheme)]
     public class ExerciseInstancesController : Controller
     {
         private readonly ExerciseRepository _repository;
