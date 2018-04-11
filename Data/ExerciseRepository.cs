@@ -21,7 +21,6 @@ namespace Exercises.Api.Data
 
         public IEnumerable<ExerciseInstance> GetAllExerciseInstances() {
             
-            
             return _db.ExerciseInstances
                     .Include(u => u.user)
                     .Include(e => e.exercise)
@@ -37,6 +36,10 @@ namespace Exercises.Api.Data
                     .Where(p => p.user.UserName == username)
                     .OrderBy(d => d.Date)
                     .ToList();
+        }
+
+        public void AddEntity (object model) {
+            _db.Add(model);
         }
 
         public bool SaveAll(){
