@@ -14,24 +14,7 @@ namespace Exercises.Api.Controllers
 
         public ExercisesController(ExerciseContext db)
         {
-            this.db = db;
-
-            if (this.db.Exercises.Count() == 0)
-            {
-                this.db.Exercises.Add(new Exercise
-                {
-                    Id = 1,
-                    name = "Bench Press"
-                });
-
-                this.db.Exercises.Add(new Exercise
-                {
-                    Id = 2,
-                    name = "Hammer Curls"
-                });
-
-                this.db.SaveChanges();
-            }
+           
         }
 
         [HttpGet]
