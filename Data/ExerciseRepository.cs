@@ -28,6 +28,12 @@ namespace Exercises.Api.Data
                     .ToList();
         }
 
+        public IEnumerable<Exercise> GetAllExercises() {
+            
+            return _db.Exercises
+                    .ToList();
+        }
+
         public IEnumerable<ExerciseInstance> GetAllExerciseInstancesByUser(string username) {
             
             

@@ -40,6 +40,12 @@ namespace ExerciseInstances.Api.Controllers
             return Ok(_repository.GetAllExerciseInstances());
         }
 
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return Ok(_repository.GetAllExercises());
+        }
+
        
        [HttpGet("{username}")]
         public IActionResult Get(string username)
