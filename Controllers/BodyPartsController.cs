@@ -15,23 +15,7 @@ namespace BodyParts.Api.Controllers
         public BodyPartsController(ExerciseContext db)
         {
             
-            this.db = db;
-            if (this.db.BodyParts.Count() == 0)
-            {
-                this.db.BodyParts.Add(new BodyPart
-                {
-                    Id = 1,
-                    name = "Arms"
-                });
-
-                this.db.BodyParts.Add(new BodyPart
-                {
-                    Id = 2,
-                    name = "Legs"
-                });
-
-                this.db.SaveChanges();
-            }
+            
 
         }
 
