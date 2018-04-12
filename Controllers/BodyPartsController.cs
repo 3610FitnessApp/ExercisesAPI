@@ -28,7 +28,7 @@ namespace BodyParts.Api.Controllers
         [HttpGet("{id}", Name="GetBodyPart")]
         public IActionResult GetById(int Id)
         {
-            var bodyPart = db.Workouts.Find(Id);
+            var bodyPart = db.BodyParts.Find(Id);
 
             if(bodyPart == null)
             {
