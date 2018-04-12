@@ -24,6 +24,7 @@ namespace Exercises.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ExerciseContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DatabaseConnection")));
 
             services.AddAuthentication()
             .AddCookie()
@@ -35,8 +36,6 @@ namespace Exercises.Api
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Tokens:Key"]))
                 };
             });
-
-            services.AddDbContext<ExerciseContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("DatabaseConnection")));
 
             services.AddIdentity<User, IdentityRole>(cfg =>
             {
@@ -74,14 +73,8 @@ namespace Exercises.Api
             app.UseAuthentication();
             app.UseMvc();
 
-            //Calling the ExerciseSeeder to seed the database with simple data,
-            //only called when in development mode.
-            if(env.IsDevelopment()) {
-                using (var scope = app.ApplicationServices.CreateScope()){
-                    var seeder = scope.ServiceProvider.GetService<ExerciseSeeder>();
-                    seeder.Seed().Wait();
-                }
-            }
+            
+            
         }
     }
 }
