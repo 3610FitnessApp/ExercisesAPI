@@ -66,7 +66,7 @@ namespace ProgramInstances.Api.Controllers
             }
 
             currentProgramInstance.userId = newProgramInstance.userId;
-            currentProgramInstance.programId = newProgramInstance.programId;
+            currentProgramInstance.program = newProgramInstance.program;
             currentProgramInstance.workouts = newProgramInstance.workouts;
             
 
