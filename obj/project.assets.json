@@ -12607,7 +12607,7 @@
       "outputPath": "C:\\Labs\\ExercisesAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\John\\AppData\\Roaming\\NuGet\\NuGet.Config"

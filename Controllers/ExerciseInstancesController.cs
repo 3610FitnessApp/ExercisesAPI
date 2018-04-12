@@ -4,93 +4,72 @@ using System.Linq;
 using System.Threading.Tasks;
 using Exercises.Api.Data;
 using Microsoft.AspNetCore.Mvc;
+using Exercises.Api.Models.ViewModels;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.Extensions.Configuration;
+using System.Security.Claims;
 
 namespace ExerciseInstances.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[Controller]")]
+    [Authorize(AuthenticationSchemes=JwtBearerDefaults.AuthenticationScheme)]
     public class ExerciseInstancesController : Controller
     {
-        private readonly ExerciseContext db;
+        private readonly ExerciseRepository _repository;
+        private readonly ExerciseContext _db;
 
-        public ExerciseInstancesController(ExerciseContext db)
+        private readonly UserManager<User> _userManager;
+
+        public ExerciseInstancesController(ExerciseContext db, ExerciseRepository repository, 
+        UserManager<User> userManager)
         {
             
-            this.db = db;
+            _db = db;
+            _repository = repository;
+            _userManager = userManager;
 
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult Get()
         {
-            return Ok(db.ExerciseInstances);
+            return Ok(_repository.GetAllExerciseInstances());
         }
 
-        [HttpGet("{id}", Name="GetExerciseInstance")]
-        public IActionResult GetById(int Id)
+       
+       [HttpGet("{username}")]
+        public IActionResult Get(string username)
         {
-            var exerciseInstance = db.ExerciseInstances.Find(Id);
 
-            if(exerciseInstance == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(exerciseInstance);
+            return Ok(_repository.GetAllExerciseInstancesByUser(username));
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody]ExerciseInstance exerciseInstance)
+        public async Task<IActionResult> Post([FromBody] ExerciseViewModel model)
         {
-            if(exerciseInstance == null)
+            var currentUser = await _userManager.FindByNameAsync(model.userName);
+            var exercise = _db.Exercises.SingleOrDefault(ex => ex.name == model.exercise);
+            var newExerciseInstance = new ExerciseInstance() 
             {
-                return BadRequest();
+                Date = model.ExerciseDate,
+                user = currentUser,
+                Id = model.ExerciseInstanceId,
+                weight = model.weight,
+                reps = model.reps,
+                sets = model.sets,
+                exercise = exercise
+            };
+            if (newExerciseInstance.Date == DateTime.MinValue) {
+                newExerciseInstance.Date = DateTime.Now;
             }
-            this.db.ExerciseInstances.Add(exerciseInstance);
-            this.db.SaveChanges();
+            _repository.AddEntity(newExerciseInstance);
+            _repository.SaveAll();
 
-            return CreatedAtRoute("GetExerciseInstance", new { id = exerciseInstance.Id}, exerciseInstance);
-        }
-
-        [HttpPut("{id}")]
-        public IActionResult Put(int Id, [FromBody]ExerciseInstance newExerciseInstance)
-        {
-            if (newExerciseInstance == null || newExerciseInstance.Id != Id)
-            {
-                return BadRequest();
-            }
-            var currentExerciseInstance = this.db.ExerciseInstances.FirstOrDefault(x => x.Id == Id);
-
-            if (currentExerciseInstance == null)
-            {
-                return NotFound();
-            }
-
-            currentExerciseInstance.weight = newExerciseInstance.weight;
-            currentExerciseInstance.reps = newExerciseInstance.reps;
-            currentExerciseInstance.sets = newExerciseInstance.sets;
-            currentExerciseInstance.workoutId = newExerciseInstance.workoutId;
-            currentExerciseInstance.exerciseId = newExerciseInstance.exerciseId;
-            
-
-            this.db.ExerciseInstances.Update(currentExerciseInstance);
-            this.db.SaveChanges();
-
-            return NoContent();
-        }
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int Id)
-        {
-            var exerciseInstance = this.db.ExerciseInstances.FirstOrDefault(x => x.Id == Id);
-
-            if (exerciseInstance == null)
-            {
-                return NotFound();
-            }
-
-            this.db.ExerciseInstances.Remove(exerciseInstance);
-            this.db.SaveChanges();
-
-            return NoContent();
+            return Created($"/api/ExerciseInstances/{model.ExerciseInstanceId}", model);
         }
     }
 }

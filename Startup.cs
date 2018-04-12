@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Exercises.Api.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace Exercises.Api
@@ -42,6 +43,9 @@ namespace Exercises.Api
             })
                 .AddEntityFrameworkStores<ExerciseContext>();
 
+            services.AddTransient<ExerciseSeeder>();
+
+            services.AddScoped<ExerciseRepository>();
             
             services.AddCors(options =>
             {
@@ -53,7 +57,8 @@ namespace Exercises.Api
                 .WithOrigins("http://localhost:4200/register"));
             });
 
-            services.AddMvc();
+            services.AddMvc()
+            .AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
