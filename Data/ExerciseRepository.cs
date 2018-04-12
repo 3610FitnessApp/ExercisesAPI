@@ -30,12 +30,11 @@ namespace Exercises.Api.Data
 
         public IEnumerable<ExerciseInstance> GetAllExerciseInstancesByUser(string username) {
             
-            var user = _userManager.FindByNameAsync(username);
             
             return _db.ExerciseInstances
-                    .Where(p => p.user.UserName == username)
                     .Include(u => u.user)
                     .Include(e => e.exercise)
+                    .Where(p => p.user.UserName == username)
                     .OrderBy(d => d.Date)
                     .ToList();
         }
