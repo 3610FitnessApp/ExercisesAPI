@@ -15,7 +15,7 @@ using System.Security.Claims;
 
 namespace Exercises.Api.Controllers
 {
-    [Route("api/[Controller]")]
+    [Route("api/exercises")]
     //[Authorize(AuthenticationSchemes=JwtBearerDefaults.AuthenticationScheme)]
     public class ExercisesController : Controller
     {
