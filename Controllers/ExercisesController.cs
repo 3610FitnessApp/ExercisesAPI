@@ -39,7 +39,7 @@ namespace Exercises.Api.Controllers
         }
 
         [HttpGet("{id}", Name="GetExercise")]
-        public IActionResult GetById(int ID)
+        public ActionResult GetById(int ID)
         {
             return Ok(_repository.GetExerciseID(ID));
         }
