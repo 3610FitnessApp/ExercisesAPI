@@ -49,7 +49,7 @@ namespace Exercises.Api.Data
 
             return _db.Exercises
                     .Include(d => d.name)
-                    .Where(s => s.name == '%' + searchExercise+ '%')
+                    .Where(s => s.name == searchExercise)
                     .ToList();
         }
 
