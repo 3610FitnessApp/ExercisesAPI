@@ -11,9 +11,10 @@ using System;
 namespace Exercises.Api.Migrations
 {
     [DbContext(typeof(ExerciseContext))]
-    partial class ExerciseContextModelSnapshot : ModelSnapshot
+    [Migration("20180414171451_exercisesFix")]
+    partial class exercisesFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
