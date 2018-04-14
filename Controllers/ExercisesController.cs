@@ -31,10 +31,18 @@ namespace Exercises.Api.Controllers
 
         }
 
+       
         [HttpGet]
         public IActionResult Get()
         {
             return Ok(_repository.GetAllExercises());
+        }
+         [Route("api/Exercise/Search")]
+        [HttpGet]
+
+        public IActionResult getSearch (string exercise) 
+        {
+            return Ok(_repository.GetAllExerciseSearch(exercise));
         }
     }
 }

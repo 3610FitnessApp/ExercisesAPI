@@ -33,6 +33,23 @@ namespace Exercises.Api.Data
             return _db.Exercises
                     .ToList();
         }
+        public IEnumerable<Exercise> GetAllExerciseSearch(string searchExercise) {
+            
+            
+
+            var exercise = from m in _db.Exercises
+                 select m;
+
+             if (!String.IsNullOrEmpty(searchExercise))
+              {
+                 exercise = exercise.Where(s => s.name.Contains(searchExercise));
+              }
+
+            return _db.Exercises
+                    .Include(e => exercise)
+                    .ToList();
+        }
+
 
         public IEnumerable<ExerciseInstance> GetAllExerciseInstancesByUser(string username) {
             
@@ -44,6 +61,7 @@ namespace Exercises.Api.Data
                     .OrderBy(d => d.Date)
                     .ToList();
         }
+
 
         public void AddEntity (object model) {
             _db.Add(model);
