@@ -8,5 +8,6 @@ namespace Exercises.Api.Data
       public int Id { get; set; }
       public string name { get; set; }
       public List<WorkoutExercise> Exercises { get; set; }
+      public List<ProgramWorkout> Workouts { get; set; }
     }
 }
