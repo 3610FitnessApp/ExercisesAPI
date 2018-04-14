@@ -12600,11 +12600,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Labs\\ExercisesAPI\\Exercises.Api.csproj",
+      "projectUniqueName": "C:\\Labs\\ExercisesAPI\\Exercises.Api.csproj",
       "projectName": "Exercises.Api",
-      "projectPath": "c:\\Labs\\ExercisesAPI\\Exercises.Api.csproj",
+      "projectPath": "C:\\Labs\\ExercisesAPI\\Exercises.Api.csproj",
       "packagesPath": "C:\\Users\\John\\.nuget\\packages\\",
-      "outputPath": "c:\\Labs\\ExercisesAPI\\obj\\",
+      "outputPath": "C:\\Labs\\ExercisesAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
