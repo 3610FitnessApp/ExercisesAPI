@@ -37,17 +37,11 @@ namespace Exercises.Api.Controllers
         {
             return Ok(_repository.GetAllExercises());
         }
+
         [HttpGet("{id}", Name="GetExercise")]
-        public IActionResult GetById(int Id)
+        public IActionResult GetById(int ID)
         {
-            var exercise = _db.Exercises.Find(Id);
-
-            if(exercise == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(exercise);
+            return Ok(_repository.GetExerciseID(ID));
         }
 
         [HttpGet("{name}")]

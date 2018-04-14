@@ -33,6 +33,13 @@ namespace Exercises.Api.Data
             return _db.Exercises
                     .ToList();
         }
+        public IEnumerable<Exercise> GetExerciseID(int ID) {
+            
+            return _db.Exercises
+                    .Include(e => e.name)
+                    .Where(p => p.Id == ID)
+                    .ToList();
+        }
        
          public IEnumerable<Exercise> GetAllExerciseSearch(string searchExercise) {
             
