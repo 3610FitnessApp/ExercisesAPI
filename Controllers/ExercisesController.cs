@@ -20,28 +20,35 @@ namespace Exercises.Api.Controllers
     public class ExercisesController : Controller
     {
         private readonly ExerciseRepository _repository;
-        private readonly ExerciseContext _db;
+        private readonly ExerciseContext db;
 
 
         public ExercisesController(ExerciseContext db, ExerciseRepository repository)
         {
             
-            _db = db;
+           this.db = db;
             _repository = repository;
 
         }
 
        
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetAll()
         {
             return Ok(_repository.GetAllExercises());
         }
 
         [HttpGet("{id}", Name="GetExercise")]
-        public ActionResult GetById(int ID)
+        public IActionResult GetById(int id)
         {
-            return Ok(_repository.GetExerciseID(ID));
+            var exercise = db.Exercises.Find(id);
+
+            if(exercise == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(exercise);
         }
 
         [HttpGet("{name}", Name="GetExerciseSearch")]
