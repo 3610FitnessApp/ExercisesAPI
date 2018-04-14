@@ -36,18 +36,13 @@ namespace Exercises.Api.Data
        
          public IEnumerable<Exercise> GetAllExerciseSearch(string searchExercise) {
             
+           
+       // get { return "SELECT ID,Description,Price FROM Catalog WHERE Description LIKE '%'+@SearchTerm+'%'
             
 
-            var exercise = from m in _db.Exercises
-                 select m;
-
-             if (!String.IsNullOrEmpty(searchExercise))
-              {
-                 exercise = exercise.Where(s => s.name.Contains(searchExercise));
-              }
-
             return _db.Exercises
-                    .Include(e => exercise)
+                    .Include(d => d.name)
+                    .Where(s => s.name == '%' + searchExercise+ '%')
                     .ToList();
         }
 
