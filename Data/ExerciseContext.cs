@@ -11,9 +11,7 @@ namespace Exercises.Api.Data
             {
             }
 
-        public ExerciseContext()
-            {
-            }
+        
 
         protected override void OnModelCreating(ModelBuilder builder){
             builder.Entity<ExerciseBodyPart>().HasKey(ebp => new { ebp.exerciseId, ebp.bodyPartId});
