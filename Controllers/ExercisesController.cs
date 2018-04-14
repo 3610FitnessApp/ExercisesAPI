@@ -44,7 +44,10 @@ namespace Exercises.Api.Controllers
             return Ok(_repository.GetExerciseID(ID));
         }
 
-        [HttpGet("{name}")]
-        public IActionResult getSearch(string exercise) => Ok(_repository.GetAllExerciseSearch(exercise));
+        [HttpGet("{name}", Name="GetExerciseSearch")]
+        public IActionResult getSearch(string exercise)
+        {
+            return Ok(_repository.GetAllExerciseSearch(exercise));
+        }
     }
 }
