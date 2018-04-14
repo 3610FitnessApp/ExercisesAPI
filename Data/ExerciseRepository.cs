@@ -33,7 +33,8 @@ namespace Exercises.Api.Data
             return _db.Exercises
                     .ToList();
         }
-        public IEnumerable<Exercise> GetAllExerciseSearch(string searchExercise) {
+       
+         public IEnumerable<Exercise> GetAllExerciseSearch(string searchExercise) {
             
             
 
@@ -49,7 +50,6 @@ namespace Exercises.Api.Data
                     .Include(e => exercise)
                     .ToList();
         }
-
 
         public IEnumerable<ExerciseInstance> GetAllExerciseInstancesByUser(string username) {
             
