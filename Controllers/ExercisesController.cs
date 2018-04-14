@@ -4,90 +4,37 @@ using System.Linq;
 using System.Threading.Tasks;
 using Exercises.Api.Data;
 using Microsoft.AspNetCore.Mvc;
+using Exercises.Api.Models.ViewModels;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.Extensions.Configuration;
+using System.Security.Claims;
 
 namespace Exercises.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[Controller]")]
+    //[Authorize(AuthenticationSchemes=JwtBearerDefaults.AuthenticationScheme)]
     public class ExercisesController : Controller
     {
-        private readonly ExerciseContext db;
+        private readonly ExerciseRepository _repository;
+        private readonly ExerciseContext _db;
 
-        public ExercisesController(ExerciseContext db)
+
+        public ExercisesController(ExerciseContext db, ExerciseRepository repository)
         {
-           
+            
+            _db = db;
+            _repository = repository;
+
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult Get()
         {
-            return Ok(db.Exercises);
-        }
-
-        [HttpGet("{id}", Name="GetExercise")]
-        public IActionResult GetById(int id)
-        {
-            var exercise = db.Exercises.Find(id);
-
-            if(exercise == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(exercise);
-        }
-
-        [HttpPost]
-        public IActionResult Post([FromBody]Exercise exercise)
-        {
-            if(exercise== null)
-            {
-                return BadRequest();
-            }
-            this.db.Exercises.Add(exercise);
-            this.db.SaveChanges();
-
-        return CreatedAtRoute("GetExercise", new { id = exercise.Id}, exercise);
-        }
-
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]Exercise newExercise)
-        {
-            if (newExercise == null || newExercise.Id != id)
-            {
-                return BadRequest();
-            }
-            var currentExercise = this.db.Exercises.FirstOrDefault(x => x.Id == id);
-
-            if (currentExercise == null)
-            {
-                return NotFound();
-            }
-
-            currentExercise.name = newExercise.name;
-            currentExercise.ExerciseBodyPart = newExercise.ExerciseBodyPart;
-
-            this.db.Exercises.Update(currentExercise);
-            this.db.SaveChanges();
-
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            var exercise = this.db.Exercises.FirstOrDefault(x => x.Id == id);
-
-            if (exercise == null)
-            {
-                return NotFound();
-            }
-
-            this.db.Exercises.Remove(exercise);
-            this.db.SaveChanges();
-
-            return NoContent();
+            return Ok(_repository.GetAllExercises());
         }
     }
 }
-
-
