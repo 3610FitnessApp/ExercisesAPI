@@ -48,6 +48,35 @@ namespace ExerciseInstances.Api.Controllers
             return Ok(_repository.GetAllExerciseInstancesByUser(username));
         }
 
+        [Route("Edit")]
+        [HttpPost]
+        public async Task<IActionResult> Edit([FromBody] ExerciseViewModel model)
+        {
+            var currentUser = await _userManager.FindByNameAsync(model.userName);
+            var exercise = _db.Exercises.SingleOrDefault(ex => ex.name == model.exercise);
+            //_repository.DeleteExercise(model.ExerciseInstanceId);
+            var newExerciseInstance = new ExerciseInstance() 
+            {
+                Date = model.ExerciseDate,
+                user = currentUser,
+                Id = model.ExerciseInstanceId,
+                weight = model.weight,
+                reps = model.reps,
+                sets = model.sets,
+                exercise = exercise
+            };
+            if (newExerciseInstance.Date == DateTime.MinValue) {
+                newExerciseInstance.Date = DateTime.Now;
+            }
+
+            _repository.DeleteEntity(newExerciseInstance);
+            _repository.SaveAll();
+            _repository.AddEntity(newExerciseInstance);
+            _repository.SaveAll();
+
+            return Created($"/api/ExerciseInstances/{model.ExerciseInstanceId}", model);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] ExerciseViewModel model)
         {

@@ -49,6 +49,17 @@ namespace Exercises.Api.Data
             _db.Add(model);
         }
 
+       /* public void DeleteExercise (int id) {
+            
+            var exercise = _db.ExerciseInstances.FirstOrDefault(x => x.Id == id);
+            
+            _db.ExerciseInstances.Remove(exercise);
+        }*/
+
+        public void DeleteEntity (object model) {
+            _db.Remove(model);
+        }
+
         public bool SaveAll(){
             return _db.SaveChanges() > 0;
         }
