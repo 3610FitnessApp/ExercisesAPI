@@ -57,7 +57,7 @@ namespace ExerciseInstances.Api.Controllers
             {
                 Date = model.ExerciseDate,
                 user = currentUser,
-                Id = model.ExerciseInstanceId,
+                //Id = model.ExerciseInstanceId,
                 weight = model.weight,
                 reps = model.reps,
                 sets = model.sets,
