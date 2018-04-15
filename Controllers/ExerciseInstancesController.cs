@@ -54,7 +54,6 @@ namespace ExerciseInstances.Api.Controllers
         {
             var currentUser = await _userManager.FindByNameAsync(model.userName);
             var exercise = _db.Exercises.SingleOrDefault(ex => ex.name == model.exercise);
-            //_repository.DeleteExercise(model.ExerciseInstanceId);
             var newExerciseInstance = new ExerciseInstance() 
             {
                 Date = model.ExerciseDate,
