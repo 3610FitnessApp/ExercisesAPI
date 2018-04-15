@@ -69,6 +69,10 @@ namespace Exercises.Api.Data
             _db.Add(model);
         }
 
+        public void DeleteEntity (object model) {
+            _db.Remove(model);
+        }
+        
         public bool SaveAll(){
             return _db.SaveChanges() > 0;
         }
